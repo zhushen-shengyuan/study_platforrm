@@ -120,4 +120,11 @@ app.delete('/api/delete/:filename', (req, res) => {
 // 静态文件服务
 app.use('/file', express.static(FILE_DIR))
 
+// 优化：添加keep-alive和缓存
+app.use((req, res, next) => {
+  res.setHeader('Connection', 'keep-alive')
+  res.setHeader('Cache-Control', 'public, max-age=3600')
+  next()
+})
+
 module.exports = app

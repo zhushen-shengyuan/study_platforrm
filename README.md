@@ -345,5 +345,8 @@ A: 修改server.js的PORT或vite.config.js的端口配置
 MIT License
 
 ---
-#   s t u d y _ p l a t f o r r m  
+
+## 📄 许可证
+
+MIT License
  

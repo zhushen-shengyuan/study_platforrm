@@ -202,7 +202,7 @@ export default {
       
       try {
         // 调用后端下载接口
-        const response = await fetch(`http://localhost:3001/api/download/${encodeURIComponent(targetFile)}`)
+        const response = await fetch(`/api/download/${encodeURIComponent(targetFile)}`)
         
         if (!response.ok) {
           const error = await response.json()
@@ -254,7 +254,7 @@ export default {
           // 多文件删除
           for (const file of this.resource.files) {
             try {
-              const deleteResponse = await fetch(`http://localhost:3001/api/delete/${encodeURIComponent(file.fileName)}`, {
+              const deleteResponse = await fetch(`/api/delete/${encodeURIComponent(file.fileName)}`, {
                 method: 'DELETE'
               })
               const deleteResult = await deleteResponse.json()
@@ -268,7 +268,7 @@ export default {
         } else if (this.resource.fileName) {
           // 单文件删除（兼容旧数据）
           try {
-            const deleteResponse = await fetch(`http://localhost:3001/api/delete/${encodeURIComponent(this.resource.fileName)}`, {
+            const deleteResponse = await fetch(`/api/delete/${encodeURIComponent(this.resource.fileName)}`, {
               method: 'DELETE'
             })
             const deleteResult = await deleteResponse.json()

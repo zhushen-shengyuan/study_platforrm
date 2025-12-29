@@ -167,7 +167,7 @@ export default {
           formData.append('file', file)
           
           // 调用后端上传接口
-          const response = await fetch('http://localhost:3001/api/upload', {
+          const response = await fetch('/api/upload', {
             method: 'POST',
             body: formData
           })

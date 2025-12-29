@@ -6,7 +6,7 @@ const path = require('path')
 const fs = require('fs')
 
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 // 中间件配置
 app.use(cors())
@@ -133,9 +133,15 @@ app.get('/api/health', (req, res) => {
   res.json({ success: true, message: '服务器运行正常' })
 })
 
-// 启动服务器
-app.listen(PORT, () => {
-  console.log(`🚀 服务器运行在 http://localhost:${PORT}`)
-  console.log(`📁 文件存储路径: ${FILE_DIR}`)
-  console.log('✅ 文件上传下载服务已就绪')
-})
+// Vercel导出
+if (process.env.NODE_ENV !== 'production') {
+  // 本地开发环境
+  app.listen(PORT, () => {
+    console.log(`🚀 服务器运行在 http://localhost:${PORT}`)
+    console.log(`📁 文件存储路径: ${FILE_DIR}`)
+    console.log('✅ 文件上传下载服务已就绪')
+  })
+}
+
+// Vercel云函数导出
+module.exports = app

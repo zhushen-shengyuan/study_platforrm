@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/study_platforrm/',  // GitHub Pages路径
+  base: process.env.NODE_ENV === 'production' ? '/study_platforrm/' : '/',
   server: {
     port: 5173
   }

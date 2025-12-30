@@ -3,7 +3,8 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/study_platforrm/',  // GitHub Pages路径
   server: {
-    port: 5173  // 修改为5173避免与后端端口冲突
+    port: 5173
   }
 })

@@ -1,23 +1,5 @@
 {
-  "functions": {
-    "api/*.js": {
-      "maxDuration": 10,
-      "memory": 512
-    }
-  },
   "rewrites": [
-    {
-      "source": "/api/health",
-      "destination": "/api/health.js"
-    },
-    {
-      "source": "/api/upload",
-      "destination": "/api/upload.js"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.js"
-    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
